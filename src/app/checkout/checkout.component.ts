@@ -6,7 +6,7 @@ import { Product } from '../model/product.model';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent {
   products: Product[] = [
     {
       id: 1,
@@ -25,16 +25,21 @@ export class CheckoutComponent implements OnInit {
       quantity: 4
     }
   ]
-  numberItems: number = 0;
+  numberItems: number = 3;
   constructor() { }
 
   ngOnInit(): void {
+    let numberItems = 0;
+    let subTotal = 0;
+    for (const product of this.products) {
+      numberItems += product.quantity;
+      subTotal += product.price * product.quantity;
+    }
+    this.numberItems = numberItems;
   }
   onRemoveProduct = (productId: number): void => {
     const index =  this.products.findIndex(product => product.id === productId);
     this.products.splice(index, 1);
   }
-
-
 
 }

@@ -23,7 +23,6 @@
       "dom"
     ],
     "strictPropertyInitialization": false,
-    "noImplicitAny": false
 
   },
   "angularCompilerOptions": {

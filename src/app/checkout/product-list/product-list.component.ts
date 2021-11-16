@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
 
   updateQuantity = (element: any) => {
     console.log('element', element)
+    
   }
 
 }
